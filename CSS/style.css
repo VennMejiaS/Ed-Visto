@@ -9,11 +9,13 @@ body{
     background: white;
     font-family: 'Inter', sans-serif;
     font-style: normal;
+    margin-inline-start: 207px;
 }
 
 .upper-body{
     block-size: 130px;
     background: #D9D9D9;
+    
 }
 
 h1,h2{
@@ -53,6 +55,39 @@ h3{
     line-height: 3opx;
     padding-top: 17px;
     padding-left: 42px;
+    padding-right: 35px;
+    
+}
+
+.title input{
+    padding-top: 11px;
+}
+
+form p{
+    color: var(--gray10);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    width: 100%; 
+    box-sizing: border-box;
+    margin-inline-start: 68%;
+
+
+}
+
+.button{
+    background: #FF7000;
+    border: none;
+    border-radius: 10px;
+    width: 530px;
+    height: 54px;
+    font-family: 'Montserrat' sans-serif;
+    font-weight: 800;
+    line-height: 19px;
+    color: var(--white10);
+    
+
+
 }
 
 
