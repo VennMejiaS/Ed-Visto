@@ -52,4 +52,21 @@ bibliographyLength.innerText = `${inputLenght}/5000`
 }
 )
 
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", function(event) {
+        const formElements = form.querySelectorAll("input, textarea");
+
+        formElements.forEach(function(element) {
+            if (element.required && element.value.trim() === "") {
+                event.preventDefault(); // Evitar el envío del formulario
+                const fieldName = element.id;
+                const fieldLabel = element.previousElementSibling.textContent;
+                alert(`${fieldLabel} es un campo obligatorio. Por favor, completarlo.`);
+            }
+        });
+    });
+});
+
 

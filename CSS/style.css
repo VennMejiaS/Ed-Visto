@@ -9,16 +9,21 @@ body{
     background: white;
     font-family: 'Inter', sans-serif;
     font-style: normal;
-    margin-inline-start: 207px;
+    margin-inline-start: 10px;
+    margin-inline-end: 20px;
 }
 
 .upper-body{
-    block-size: 130px;
+    block-size: 100px;
+    box-sizing: border-box;
     background: #D9D9D9;
-    
+    margin-inline-start: -10px;
+    margin-inline-end: -20px;
+    margin-block-start: -10px;
+    background-size:100%;   
 }
 
-h1,h2{
+h1,h2,h4{
     color: var(--purple);
 }
 
@@ -41,6 +46,12 @@ h3{
     line-height: 30px; 
 }
 
+h4{
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 36px; 
+}
+
 .title input, textarea{
     width: 100%; 
     box-sizing: border-box;
@@ -52,16 +63,17 @@ h3{
     font-family: 'Montserrat' sans-serif;
     font-size: 15px;
     font-weight: 700;
-    line-height: 3opx;
+    line-height: 30px;
     padding-top: 17px;
-    padding-left: 42px;
-    padding-right: 35px;
+    padding-left: 35px;
+    padding-right: 30px;
     
 }
 
 .title input{
     padding-top: 11px;
 }
+
 
 form p{
     color: var(--gray10);
@@ -70,7 +82,7 @@ form p{
     line-height: 30px;
     width: 100%; 
     box-sizing: border-box;
-    margin-inline-start: 68%;
+    margin-inline-start: 45%;
 
 
 }
@@ -79,16 +91,21 @@ form p{
     background: #FF7000;
     border: none;
     border-radius: 10px;
-    width: 530px;
+    width: 200px;
     height: 54px;
     font-family: 'Montserrat' sans-serif;
     font-weight: 800;
     line-height: 19px;
     color: var(--white10);
-    
-
-
+    margin-inline-start: 19%;
+    box-sizing: content-box;
 }
 
+.button:hover{
+    border: 5px solid #684FF8;
+}
 
+.button:focus {
+    background: #684FF8;
+}
 
