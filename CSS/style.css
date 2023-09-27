@@ -52,7 +52,7 @@ h4{
     line-height: 36px; 
 }
 
-.title input, textarea{
+input, textarea{
     width: 100%; 
     box-sizing: border-box;
     max-width: 1030px;
@@ -74,6 +74,13 @@ h4{
     padding-top: 11px;
 }
 
+textarea:invalid{
+    border: 1px solid red;
+}
+
+input:invalid{
+    border: 1px solid red;
+}
 
 form p{
     color: var(--gray10);
@@ -109,3 +116,31 @@ form p{
     background: #684FF8;
 }
 
+#camino-title{
+    display: block;
+    margin-block-start: 61px;
+    margin-block-end: 64px;
+    padding: 6px 24px 6px 44px;
+}
+
+#camino-body{
+    display:block;
+}
+
+#editar{
+    display:inline-block;
+    margin-block-start: 50px ;
+    margin-inline-start: 0;
+}
+
+#continuar{
+    display: inline;
+    margin-block-start: 50px ;
+    margin-inline-start: 0;
+}
+
+@media screen and (min-width: 1319px){
+    #editar{
+        margin-block-start: 100px;
+    }
+}  
