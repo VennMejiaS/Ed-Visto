@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Montserrat:wght@500;800&display=swap" rel="stylesheet">
+    <title>Camino de aprendizaje</title>
+</head>
+<body>
+  <div class="upper-body"></div>
+  <h1>CAMINO DE APRENDIZAJE</h1> 
+  <form action="">
+    <div class="climax">
+        <h3>¿QUÉ TE PARECIÓ LO MÁS SORPRENDENTE?</h3>
+        <textarea id="amazing" type="text" minlength="1" maxlength="5000" cols="100  " rows="10" placeholder="PUEDES DAR MÁS DETALLE SOBRE EL TEMA, CONTAR ALGÚN DATO INTERESANTE, EXPLICAR CÓMO FUNCIONAN LAS COSAS." required onvalid="" oninvalid="this.setCustomValidity('¡Oops! Parece que olvidaste llenar algunos espacios importantes. Por favor, asegúrate de llenar todos los campos marcados  para que podamos seguir adelante juntos !Gracias por tu colaboración!')" ></textarea>
+        <button type="button"  class="voice" id="voice-amazing">
+            <img src="./imagenes/Voice.png" alt="Icono">
+        </button>
+        <p id="amazing-length">0/5000</p>
+        <h3>¿COMO SABEMOS ÉSTO?</h3>
+        <textarea id="knowledge" type="text" minlength="1" maxlength="5000" cols="100  " rows="10" placeholder="PUEDES EXPLICAR CÓMO LOS EXPERTOS HAN APRENDIDO SOBRE ESTE TEMA PUEDES MENCIONAR LIBROS, EXPERIMENTOS, OBSERVACIONES Y ESTUDIOS CIENTÍFICOS." required onvalid="" oninvalid="this.setCustomValidity('¡Oops! Parece que olvidaste llenar algunos espacios importantes. Por favor, asegúrate de llenar todos los campos marcados  para que podamos seguir adelante juntos !Gracias por tu colaboración!')" ></textarea>
+        <button type="button"  class="voice" id="voice-knowledge">
+            <img src="./imagenes/Voice.png" alt="Icono">
+        </button>
+        <p id="knowledge-length">0/5000</p>
+    </div>
+    <section class="paginacion">
+        <ul>
+            <li><a href="index.html">1</a></li>
+            <li><a href="climax.html" class="active">2</a></li>
+            <li><a href="final.html">3</a></li>
+        </ul>
+    </section>
+  </form>
+  <script src="./js/climax.js"></script>  
+</body>
+</html>

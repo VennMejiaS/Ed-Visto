@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Montserrat:wght@500;800&display=swap" rel="stylesheet">
+    <title>Camino de aprendizaje</title>
+</head>
+<body>
+  <div class="upper-body"></div>
+  <h1>CAMINO DE APRENDIZAJE</h1> 
+  <form action="">
+    <div class="end">
+        <h2>TUS IDEAS Y PENSAMIENTOS</h2>
+        <h3>¿QUÉ PIENSAS DESPUÉS DE APRENDER TODAS ESTAS COSAS?</h3>
+        <textarea id="learning" type="text" minlength="1" maxlength="5000" cols="100  " rows="10" placeholder="SI TIENEN IDEAS O PENSAMIENTOS PROPIOS SOBRE EL TEMA ¡COMPÁRTELOS! A LOS DEMÁS LES GUSTARÁ SABER LO QUE PIENSAS." required onvalid="" oninvalid="this.setCustomValidity('¡Oops! Parece que olvidaste llenar algunos espacios importantes. Por favor, asegúrate de llenar todos los campos marcados  para que podamos seguir adelante juntos !Gracias por tu colaboración!')" ></textarea>
+        <button type="button" class="voice" id="voice-learning">
+            <img src="./imagenes/Voice.png" alt="Icono">
+        </button>
+        <p id="learning-length">0/5000</p>
+    </div>
+    <div class="source">
+        <h2>RECURSOS DE AYUDA</h2>
+        <h3>¿DÓNDE ENCONTRASTE LA INFORMACIÓN PARA TU PROYECTO?</h3>
+        <textarea id="bibliography" type="text" minlength="1" maxlength="5000" cols="100  " rows="10" placeholder="SI USASTE LIBROS O SITIOS WEB PARA OBTENER INFORMACIÓN ASEGURATE DE MENCIONARLOS. ESO ES COMO DARLE GRACIAS A QUIENES TE AYUDARON." required onvalid="" oninvalid="this.setCustomValidity('¡Oops! Parece que olvidaste llenar algunos espacios importantes. Por favor, asegúrate de llenar todos los campos marcados  para que podamos seguir adelante juntos !Gracias por tu colaboración!')" ></textarea>
+        <button type="button" class="voice" id="voice-bibliography">
+            <img src="./imagenes/Voice.png" alt="Icono">
+        </button>
+        <p id="bibliography-length">0/5000</p>
+    </div>
+    <section class="paginacion">
+        <ul>
+            <li><a href="index.html">1</a></li>
+            <li><a href="climax.html">2</a></li>
+            <li><a href="final.html" class="active">3</a></li>
+        </ul>
+    </section>
+    <input type="submit" class="button" value="CREAR HISTORIA">
+  </form>
+<script src="./js/final.js"></script>  
+</body>
+</html>
