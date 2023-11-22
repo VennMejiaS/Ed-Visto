@@ -46,7 +46,7 @@
             <div class="partida">
                 <h2>Punto de partida</h2>
                 <h3>¿Cuál es el fenómeno que te asignaron?</h3>
-                <input type="text" id="title" value="" minlength ="1" maxlength ="35" placeholder="" required onvalid="" oninvalid="this.setCustomValidity('¡Oops! Parece que olvidaste llenar algunos espacios importantes. Por favor, asegúrate de llenar todos los campos marcados  para que podamos seguir adelante juntos !Gracias por tu colaboración!')" >
+                <input type="text" id="title" name="title" minlength ="1" maxlength ="35" placeholder="" required onvalid="" oninvalid="this.setCustomValidity('¡Oops! Parece que olvidaste llenar algunos espacios importantes. Por favor, asegúrate de llenar todos los campos marcados  para que podamos seguir adelante juntos !Gracias por tu colaboración!')" >
                 <button type="button" class="voice" id="voice-title">
                     <img id="voice-title-image" src="./imagenes/voice.png" alt="Icono">
                 </button>
@@ -54,20 +54,20 @@
             </div>
             <div class="efectos">
                 <h3>¿En qué cosas crees que este problema hace una gran diferencia o causa efectos importantes?</h3>
-                <div class="checkbox-container">
+                <div class="checkbox-container" id="vida-container">
                     <div class="checkbox-item">
-                        <input type="checkbox" id="vida" name="vida" value=""> <label for="vida">La forma en que vivimos en nuestro planeta.</label></div>
+                        <input type="checkbox" class="checkbox-vida" id="vida1" name="vida" value=""> <label for="vida1">La forma en que vivimos en nuestro planeta.</label></div>
                     <div class="checkbox-item">
-                        <input type="checkbox" id="salud" name="salud" value=""> <label for="salud">La salud de las personas y de los animales.</label>
+                        <input type="checkbox" class="checkbox-vida" id="vida2" name="vida" value=""> <label for="vida2">La salud de las personas y de los animales.</label>
                     </div>
                     <div class="checkbox-item">
-                        <input type="checkbox" id="sociedad" name="sociedad" value=""> <label for="sociedad">Cómo se llevan bien las personas en la sociedad.</label>
+                        <input type="checkbox" class="checkbox-vida" id="vida3" name="vida" value=""> <label for="vida3">Cómo se llevan bien las personas en la sociedad.</label>
                     </div>
                     <div class="checkbox-item">
-                        <input type="checkbox" id="trabajo" name="trabajo" value=""> <label for="trabajo">La manera en que trabajamos y tenemos empleo en el futuro.</label>
+                        <input type="checkbox" class="checkbox-vida" id="vida4" name="vida" value=""> <label for="vida4">La manera en que trabajamos y tenemos empleo en el futuro.</label>
                     </div>
                     <div class="checkbox-item">
-                        <input type="checkbox" id="tecnologia" name="tecnologia" value=""> <label for="tecnologia">La tecnología que usamos en la vida cotidiana.</label>  
+                        <input type="checkbox" class="checkbox-vida" id="vida5" name="vida" value=""> <label for="vida5">La tecnología que usamos en la vida cotidiana.</label>  
                     </div>
                     <div class="Redirige-busqueda">
                        <button id="open">No lo se</button>
@@ -90,13 +90,13 @@
             <div class="camino">
                 <h2>El camino para descubrir los resultados</h2>
                 <h3>¿Qué hace que esto suceda y qué pasa a causa de ello?</h3>
-                <textarea id="suceso" type="text" minlength="1" maxlength="200" cols="200" rows="5" placeholder="¿Qué está haciendo que suceda? También, puedes decirnos qué cosas suceden a raíz de este problema. ¿Qué cambia o cómo afecta a las personas y al mundo?" required onvalid="" oninvalid="this.setCustomValidity('¡Oops! Parece que olvidaste llenar algunos espacios importantes. Por favor, asegúrate de llenar todos los campos marcados  para que podamos seguir adelante juntos !Gracias por tu colaboración!')" ></textarea>
+                <textarea id="suceso" name="suceso" type="text" minlength="1" maxlength="200" cols="200" rows="5" placeholder="¿Qué está haciendo que suceda? También, puedes decirnos qué cosas suceden a raíz de este problema. ¿Qué cambia o cómo afecta a las personas y al mundo?" required onvalid="" oninvalid="this.setCustomValidity('¡Oops! Parece que olvidaste llenar algunos espacios importantes. Por favor, asegúrate de llenar todos los campos marcados  para que podamos seguir adelante juntos !Gracias por tu colaboración!')" ></textarea>
                 <button type="button" class="voice" id="voice-suceso">
                     <img id="voice-suceso-image" src="./imagenes/Voice.png" alt="Icono">
                 </button>
                 <p class="counter" id="suceso-length">0/200</p>
                 <h3>¿Qué están haciendo para resolverlo?</h3>
-                <textarea id="resolver" type="text" minlength="1" maxlength="200" cols="100  " rows="5" placeholder="¿Qué está haciendo que suceda? También, puedes decirnos qué cosas suceden a raíz de este problema. ¿Qué cambia o cómo afecta a las personas y al mundo?" required onvalid="" oninvalid="this.setCustomValidity('¡Oops! Parece que olvidaste llenar algunos espacios importantes. Por favor, asegúrate de llenar todos los campos marcados  para que podamos seguir adelante juntos !Gracias por tu colaboración!')" ></textarea>
+                <textarea id="resolver" name="resolver" type="text" minlength="1" maxlength="200" cols="100  " rows="5" placeholder="¿Qué está haciendo que suceda? También, puedes decirnos qué cosas suceden a raíz de este problema. ¿Qué cambia o cómo afecta a las personas y al mundo?" required onvalid="" oninvalid="this.setCustomValidity('¡Oops! Parece que olvidaste llenar algunos espacios importantes. Por favor, asegúrate de llenar todos los campos marcados  para que podamos seguir adelante juntos !Gracias por tu colaboración!')" ></textarea>
                 <button type="button" class="voice" id="voice-resolver">
                     <img id="voice-resolver-image" src="./imagenes/Voice.png" alt="Icono">
                 </button>
@@ -109,30 +109,49 @@
             <div class="conclusiones">
                 <h2>Conclusiones</h2>
                 <h3>¿Qué piensas tú? ¿Es una buena idea o no? ¿Por qué?</h3>
-                <textarea id="idea" type="text" minlength="1" maxlength="200" cols="100  " rows="6" placeholder="Puedes explicar por qué estás de acuerdo, o si no te parece una buena idea, puedes explicar porqué no estás de acuerdo, siempre con respeto" required onvalid="" oninvalid="this.setCustomValidity('¡Oops! Parece que olvidaste llenar algunos espacios importantes. Por favor, asegúrate de llenar todos los campos marcados  para que podamos seguir adelante juntos !Gracias por tu colaboración!')" ></textarea>
+                <textarea id="idea" name="idea" type="text" minlength="1" maxlength="200" cols="100  " rows="6" placeholder="Puedes explicar por qué estás de acuerdo, o si no te parece una buena idea, puedes explicar porqué no estás de acuerdo, siempre con respeto" required onvalid="" oninvalid="this.setCustomValidity('¡Oops! Parece que olvidaste llenar algunos espacios importantes. Por favor, asegúrate de llenar todos los campos marcados  para que podamos seguir adelante juntos !Gracias por tu colaboración!')" ></textarea>
                 <button type="button" class="voice" id="voice-idea">
                     <img  id="voice-idea-image" src="./imagenes/Voice.png" alt="Icono">
                 </button>
                 <p class="counter" id="idea-length">0/250</p>
                 <h3>¿Qué podríamos hacer nosotros para ser parte de la solución?</h3>
-                <textarea id="solucion" type="text" minlength="1" maxlength="200" cols="100  " rows="6" placeholder="Reflexiona sobre cómo las personas, incluyéndote a ti mismo, pueden participar en la solución y por qué es importante que todos se involucren." required onvalid="" oninvalid="this.setCustomValidity('¡Oops! Parece que olvidaste llenar algunos espacios importantes. Por favor, asegúrate de llenar todos los campos marcados  para que podamos seguir adelante juntos !Gracias por tu colaboración!')" ></textarea>
+                <textarea id="solucion" name="solucion" type="text" minlength="1" maxlength="200" cols="100  " rows="6" placeholder="Reflexiona sobre cómo las personas, incluyéndote a ti mismo, pueden participar en la solución y por qué es importante que todos se involucren." required onvalid="" oninvalid="this.setCustomValidity('¡Oops! Parece que olvidaste llenar algunos espacios importantes. Por favor, asegúrate de llenar todos los campos marcados  para que podamos seguir adelante juntos !Gracias por tu colaboración!')" ></textarea>
                 <button type="button" class="voice" id="voice-solucion">
                     <img id="voice-solucion-image" src="./imagenes/Voice.png" alt="Icono">
                 </button>
                 <p class="counter" id="solucion-length">0/250</p>
             </div>
+            <div class="instrucciones">
+                <img class="perrito" src="./imagenes/perrito_profesor 1.png" alt="perrito_profesor">
+                <p class="next">
+                    ¡Casi llegamos al final de esta tarea! <br>
+                     Antes de que continúes, ten en cuenta que al presionar el botón “guardar” la información va a volar hacia nuestro sistema y quedará guardada allí! <br>
+                     Así que asegúrate de que todo esté listo y brillante antes de guardarlo.
+                <p>
+            </div>
+            <button type="submit" class="purple" id="guardar" name="guardar">Guardar borrador</button>
+            <div class="instrucciones">
+                <img class="perrito" src="./imagenes/perrito_profesor 1.png" alt="perrito_profesor">
+                <p class="next">
+                    ¡Y ahora viene la parte emocionante! <br>
+                    Presiona el botón 'Crear historia', y la historia se hará mágicamente <br>
+                    con toda la información que brindaste. ¡Vamos a crear!
+                <p>
+            </div>
             <div class="do-story">
-                <button type="submit" class="purple" id="open2" name="crear-historia-button">Crear historia</button>
+                <button type="submit" class="" id="open2" name="crear-historia-button">
+                    <img src="./imagenes/crear-historia.png" alt="">
+                </button>
                 <div class="modal-container" id="modal_container2">
                  <div class="modal">
-                     <p>¿Estás listo para enviar tus respuestas y crear tu historia?</p>
+                     <p>Tu historia se creó  con éxito.¡Veamos los resultados</p>
+                     <img src="./imagenes/ok.png" alt="ok">
                      <div class="buttons">
-                         <button type="submit" class="orange" id="close2" name="review">Revisar</button>
-                         <button type="submit" class="purple" id="story" name="story">Continuar</button>
+                        <button type="submit" class="purple" id="story" name="story">Ver historia</button>
                      </div>
                  </div>
                 </div>
-             </div>
+            </div>
         </form>
     </div>
 <script src="./js/index.js"></script>  

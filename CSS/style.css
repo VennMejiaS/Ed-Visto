@@ -36,7 +36,7 @@ body{
 
 .instrucciones{
     background: var(--Tech);
-    margin-block-start: 10%;
+    margin-block-start: 5%;
     margin-inline-start: 10%;
     margin-inline-end: 10%;
     box-sizing: border-box;
@@ -271,6 +271,12 @@ input, textarea{
 /*box-shadow: 20px -10px 10px 10px var(--Tech) ;*/    
 }
 
+#open2{
+    background: none;
+    border: none;
+    margin-inline-start: 26%;
+}
+
 @media screen and (min-width: 1319px){
     #editar{
         margin-block-start: 100px;
@@ -284,6 +290,18 @@ input, textarea{
     }  
 }  
 
-#crear-historia{
+#guardar{
     width: 331px;
+    margin-block-start: 100px;
+    margin-inline-start: 35%;
+}
+
+#open2{
+    margin-block-start: 100px;
+    margin-inline-start: 35%;
+    margin-block-end: 100px; 
+}
+
+#story{
+    margin-inline-start: 0%;
 }
