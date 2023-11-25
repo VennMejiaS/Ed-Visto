@@ -22,8 +22,8 @@ open2.addEventListener('click', (event) => {
 });
 
 //ruta de las img
-const imageOnPath = "../src/imagenes/voice-on.png";
-const imageOffPath = "../src/imagenes/voice-off.png";
+const imageOnPath = "./imagenes/voice-on.png";
+const imageOffPath = "./imagenes/voice-off.png";
 
 // Variable para indicar si el reconocimiento está activado
 let recognitionActiveTitle = false;
@@ -270,7 +270,7 @@ const getSelectedCheckboxes = (containerId) => {
 
 
 //llamado de API para guardar información.
-document.getElementById("formato").addEventListener("submit", async(event) => { //en esta sección se selecciona un elemento del HTML con el ID denominado form-history del formulario definido y agrega un escuchador de eventos, el cual estará atento a cuando ese formulario sea enviado 'submit'. Cueando eso sucede, se ejecutará la función proporcionada como segundo argumento, en este caso la función asíncrona con parámetro definido 'event'.
+document.getElementById("formato").addEventListener("submit", async(event) => { //en esta sección se selecciona un elemento del HTML con el ID denominado formato   del formulario definido y agrega un escuchador de eventos, el cual estará atento a cuando ese formulario sea enviado 'submit'. Cueando eso sucede, se ejecutará la función proporcionada como segundo argumento, en este caso la función asíncrona con parámetro definido 'event'.
     event.preventDefault(); // Por defecto, una página HTML se recarga cuando se efectúa el envío respectivo por medio del botón, esta línea de código evita que la página se recargue.
     console.log(event); // muestra en la consola el objeto 'event'. Este objeto contiene información sobre el evento que ha icurrido, en este caso, el envío del formulario.
 
@@ -288,8 +288,66 @@ document.getElementById("formato").addEventListener("submit", async(event) => { 
             solucion: event.target.querySelector('#solucion').value,
         })
     });
-
 });
 
 
+//Crear y guardar la historia
+document.getElementById('open2').addEventListener('click', function () {
+    // Obtén el historyId del formulario
+    const historyId = document.getElementById('formato').value;
 
+    // Realiza una solicitud a tu servidor backend
+    fetch(`/api/informacion-historia/${historyId}`, {
+      method: 'PUT', // o el método adecuado para tu API
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Error al obtener información de la historia');
+        }
+        return response.json();
+      })
+      .then(data => {
+        // El resultado de la API de OpenAI está en 'data'
+        // Ahora, puedes guardar la historia en la base de datos MongoDB
+        return fetch('/api/guardar-historia', {
+          method: 'PUT', 
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            historyId: historyId,
+            historia: data, 
+          }),
+        });
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Error al guardar la historia en la base de datos');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Historia guardada exitosamente en la base de datos:', data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  });
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Espera a que el DOM esté completamente cargado
+
+    // Obtén el botón por su id
+    var boton = document.getElementById('story');
+
+    // Agrega un event listener para el clic en el botón
+    boton.addEventListener('click', function() {
+        // Redirige a story-camino.html
+        window.location.href = 'story-camino.html';
+    });
+});
