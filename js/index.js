@@ -291,63 +291,37 @@ document.getElementById("formato").addEventListener("submit", async(event) => { 
 });
 
 
-//Crear y guardar la historia
-document.getElementById('open2').addEventListener('click', function () {
-    // Obtén el historyId del formulario
-    const historyId = document.getElementById('formato').value;
+const responseData = await response.json();
+// Verificar si _id está presente en la respuesta
+if (responseData && responseData._id) {
 
-    // Realiza una solicitud a tu servidor backend
-    fetch(`/api/informacion-historia/${historyId}`, {
-      method: 'PUT', // o el método adecuado para tu API
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Error al obtener información de la historia');
-        }
-        return response.json();
-      })
-      .then(data => {
-        // El resultado de la API de OpenAI está en 'data'
-        // Ahora, puedes guardar la historia en la base de datos MongoDB
-        return fetch('/api/guardar-historia', {
-          method: 'PUT', 
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            historyId: historyId,
-            historia: data, 
-          }),
+// Obtener el _id de la respuesta y guardarlo en Local Storage
+const idFromMongoDB = responseData._id;
+localStorage.setItem('mongoId', idFromMongoDB);
+} else {
+    console.error("Error: _id no encontrado en la respuesta del servidor");
+    // Manejar el error según sea necesario, por ejemplo, mostrar un mensaje de error al usuario.
+  }
+
+// Llamar a la función para generar la historia después de almacenar el ID
+generarHistoria();
+
+// Verificar si hay un ID almacenado en Local Storage
+async function generarHistoria() {
+    const mongoId = localStorage.getItem('mongoId');
+
+    if (mongoId) {
+        const openAIResponse = await fetch(`/api/informacion-historia/${mongoId}`, {
+            method: 'PUT',
+            // ...otros parámetros según la documentación de OpenAI
         });
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Error al guardar la historia en la base de datos');
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log('Historia guardada exitosamente en la base de datos:', data);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-  });
 
+        const openAIResult = await openAIResponse.json();
+        console.log ('Datos obtenidos:', responseData);
 
-
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Espera a que el DOM esté completamente cargado
-
-    // Obtén el botón por su id
-    var boton = document.getElementById('story');
-
-    // Agrega un event listener para el clic en el botón
-    boton.addEventListener('click', function() {
-        // Redirige a story-camino.html
-        window.location.href = 'story-camino.html';
-    });
-});
+        // Mostrar la historia en la consola
+        console.log('Historia generada:', openAIResult);
+    } else {
+        console.error('No se encontró un ID en Local Storage. Primero, guarda la información en MongoDB.');
+    }
+}
